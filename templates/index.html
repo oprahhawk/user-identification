@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+            scroll-snap-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-title" id="title">User Identification</a>
+        </div>
+
+        <div class="navbar-item" id="navbar-item">
+            <a class="nav-item nav-link" href="/">Resume scanning</a>
+            <a class="nav-item nav-link" href="#info">Infomation</a>
+            <a class="nav-item nav-link" href="#job">Jobs recommend</a>
+            <a class="nav-item nav-link" href="#item">Items recommend</a>
+        </div>
+    </nav>
+
+    <hr>
+
+    <section class="item" id="resume">
+        <div class="container">
+            <h1 style="margin-bottom: 50px;">Resume scanning </h1>
+            <form action="{{ url_for('resume')}}" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="resume">Upload resume (PDF):</label>
+                    <input class="submit-button" type="file" id="resume" name="resume" accept="application/pdf" required>
+                </div>
+                <div class="form-group" style="margin-top: 15px;">
+                    <button id="button-resume" type="submit" class="submit-button">Upload</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="item" id="info" style="background-color: #ebebebcc; padding: 100px 0; text-align: center;">
+        <div class="container" style="background-color: white; border-radius: 15px; padding: 40px; width: 60%; margin: 0 auto; margin-top: 0px; height: 420px; width: 800px; margin-top: 40px;">
+            <h1 style="margin-bottom: 30px; font-weight: bold; margin-top: 0px;">Infomation</h1>
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-left: 0px; margin-right: 0px;">
+    
+                <!-- Left Column -->
+                <div style="flex: 1 1 45%; text-align: left; margin-bottom: 30px; margin-right: 20px;">
+                    <div class="container" style="background-color: #f9f9f9; border-radius: 10px; padding: 5px; margin-bottom: 20px;">
+                        <div style="margin-top: 8px;">
+                            <b>Name</b>
+                        </div>
+                        {% if name %}
+                        <p style="margin-bottom: 8px; margin-top: 7px;">{{ name }}</p>
+                        {% else %}
+                        <p style="margin-bottom: 8px; margin-top: 7px;">None</p>
+                        {% endif %}
+                    </div>
+                    <div class="container" style="background-color: #f9f9f9; border-radius: 10px; padding: 5px; margin-bottom: 20px;">
+                        <div style="margin-top: 8px;">
+                            <b>Current job</b>
+                        </div>
+                        {% if current_job %}
+                        <p style="margin-bottom: 8px; margin-top: 7px;">{{ current_job }}</p>
+                        {% else %}
+                        <p style="margin-bottom: 8px; margin-top: 7px;">None</p>
+                        {% endif %}
+                    </div>
+                    <div class="container" style="background-color: #f9f9f9; border-radius: 10px; padding: 5px; margin-bottom: 20px;">
+                        <div style="margin-top: 8px;">
+                            <b>Experience years</b>
+                        </div>
+                        {% if years_of_experience %}
+                        <p style="margin-bottom: 8px; margin-top: 7px;">{{ years_of_experience }}</p>
+                        {% else %}
+                        <p style="margin-bottom: 8px; margin-top: 7px;">None</p>
+                        {% endif %}
+                    </div>
+                    <div class="container" style="background-color: #f9f9f9; border-radius: 10px; padding: 5px; margin-bottom: 20px;">
+                        <div style="margin-top: 8px;">
+                            <b>Education</b>
+                        </div>
+                        {% if education %}
+                        <p style="margin-bottom: 8px; margin-top: 7px;">{{ education }}</p>
+                        {% else %}
+                        <p style="margin-bottom: 8px; margin-top: 7px;">None</p>
+                        {% endif %}
+                    </div>
+                </div>
+    
+                <!-- Right Column -->
+                <div style="flex: 1 1 45%; text-align: left; margin-bottom: 20px;">
+                    <div class="container" style="background-color: #f9f9f9; border-radius: 10px; padding: 5px; margin-bottom: 20px;">
+                        <div style="margin-top: 8px;">
+                            <b>Skills</b>
+                        </div>
+                        {% if skills %}
+                        <p style="margin-bottom: 8px; margin-top: 7px;">{{ skills }}</p>
+                        {% else %}
+                        <p style="margin-bottom: 8px; margin-top: 7px;">None</p>
+                        {% endif %}
+                    </div>
+                    <div class="container" style="background-color: #f9f9f9; border-radius: 10px; padding: 5px; margin-bottom: 20px;">
+                        <div style="margin-top: 8px;">
+                            <b>Certificates</b>
+                        </div>
+                        {% if certification %}
+                        <p style="margin-bottom: 8px; margin-top: 7px;">{{ certification }}</p>
+                        {% else %}
+                        <p style="margin-bottom: 8px; margin-top: 7px;">None</p>
+                        {% endif %}
+                    </div>
+                    <div class="container" style="background-color: #f9f9f9; border-radius: 10px; padding: 5px; margin-bottom: 20px;">
+                        <div style="margin-top: 8px;">
+                            <b>Desired job title</b>
+                        </div>
+                        {% if desired_job_title %}
+                        <p style="margin-bottom: 8px; margin-top: 7px;">{{ desired_job_title }}</p>
+                        {% else %}
+                        <p style="margin-bottom: 8px; margin-top: 7px;">None</p>
+                        {% endif %}
+                    </div>
+                    <div class="container" style="background-color: #f9f9f9; border-radius: 10px; padding: 5px; margin-bottom: 20px;">
+                        <div style="margin-top: 8px;">
+                            <b>Location</b>
+                        </div>
+                        {% if location %}
+                        <p style="margin-bottom: 8px; margin-top: 7px;">{{ location }}</p>
+                        {% else %}
+                        <p style="margin-bottom: 8px; margin-top: 7px;">None</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="item" id="job" style="background-color: #ebebebcc;">
+        <div class="container" style="height: 450px; margin-top: 30px;">
+            <div style="margin-top:-i 0px;">
+                <h1>Jobs recommendation</h1>
+            </div>
+
+            <div class="job-container" style="height: 400px;">
+                <div class="job-box">
+                    {% if company_name %}
+                    <div class="img-jobs">
+                        <img src="{{ url_for('static', filename='images/' + company_name[0] + '.png') }}" alt="job1">
+                    </div>
+                    <div class="job-info">
+                        <h2>{{ company_name[0] }}</h2>
+                        <p>{{ job_title[0] }}</p>
+                    </div>
+                    {% else %}
+                    <div class="default-image">
+                        <img src="{{ url_for('static', filename='images/job.png') }}" alt="job1">
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="job-box">
+                    {% if company_name %}
+                    <div class="img-jobs">
+                        <img src="{{ url_for('static', filename='images/' + company_name[1] + '.png') }}" alt="job2">
+                    </div>
+                    <div class="job-info">
+                        <h2>{{ company_name[1] }}</h2>
+                        <p>{{ job_title[1] }}</p>
+                    </div>
+                    {% else %}
+                    <div class="default-image">
+                        <img src="{{ url_for('static', filename='images/job.png') }}" alt="job2">
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="job-box">
+                    {% if company_name %}
+                    <div class="img-jobs">
+                        <img src="{{ url_for('static', filename='images/' + company_name[2] + '.png') }}" alt="job3">
+                    </div>
+                    <div class="job-info">
+                        <h2>{{ company_name[2] }}</h2>
+                        <p>{{ job_title[2] }}</p>
+                    </div>
+                    {% else %}
+                    <div class="default-image">
+                        <img src="{{ url_for('static', filename='images/job.png') }}" alt="job3">
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="job-box">
+                    {% if company_name %}
+                    <div class="img-jobs">
+                        <img src="{{ url_for('static', filename='images/' + company_name[3] + '.png') }}" alt="job4">
+                    </div>
+                    <div class="job-info">
+                        <h2>{{ company_name[3] }}</h2>
+                        <p>{{ job_title[3] }}</p>
+                    </div>
+                    {% else %}
+                    <div class="default-image">
+                        <img src="{{ url_for('static', filename='images/job.png') }}" alt="job4">
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="item" id="item" style="background-color: #ebebebcc; height: 600px;">
+        <div class="container" style="height: 450px; margin-top: 30px;">
+            <div style="margin-top: 0px;">
+                <h1>Books recommendation</h1>
+            </div>
+            <div class="cer-container" style="height: 400px;">
+                <div class="cer-box">
+                    {% if book_name %}
+                    <div class="img-cers">
+                        <img src="{{ url_for('static', filename='images/' + book_id[0] + '.png') }}" alt="cer1">
+                    </div>
+                    <div class="cer-info">
+                        <h2>{{ book_name[0] }}</h2>
+                        <p>{{ book_author[0] }}</p>
+                    </div>
+                    {% else %}
+                    <div class="default-image" style="margin-top: 50px;">
+                        <img src="{{ url_for('static', filename='images/book.png') }}" alt="cer1">
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="cer-box">
+                    {% if book_name %}
+                    <div class="img-cers">
+                        <img src="{{ url_for('static', filename='images/' + book_id[1] + '.png') }}" alt="cer2">
+                    </div>
+                    <div class="cer-info">
+                        <h2>{{ book_name[1] }}</h2>
+                        <p>{{ book_author[1] }}</p>
+                    </div>
+                    {% else %}
+                    <div class="default-image" style="margin-top: 50px;">
+                        <img src="{{ url_for('static', filename='images/book.png') }}" alt="cer2">
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="cer-box">
+                    {% if book_name %}
+                    <div class="img-cers">
+                        <img src="{{ url_for('static', filename='images/' + book_id[2] + '.png') }}" alt="cer3">
+                    </div>
+                    <div class="cer-info">
+                        <h2>{{ book_name[2] }}</h2>
+                        <p>{{ book_author[2] }}</p>
+                    </div>
+                    {% else %}
+                    <div class="default-image" style="margin-top: 50px;">
+                        <img src="{{ url_for('static', filename='images/book.png') }}" alt="cer3">
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="cer-box">
+                    {% if book_name %}
+                    <div class="img-cers">
+                        <img src="{{ url_for('static', filename='images/' + book_id[3] + '.png') }}" alt="cer4">
+                    </div>
+                    <div class="cer-info">
+                        <h2>{{ book_name[3] }}</h2>
+                        <p>{{ book_author[3] }}</p>
+                    </div>
+                    {% else %}
+                    <div class="default-image" style="margin-top: 50px;">
+                        <img src="{{ url_for('static', filename='images/book.png') }}" alt="cer4">
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <script>
+        // Function to highlight navbar links
+        function highlightNavbar() {
+            // Get all sections and navbar links
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-item');
+    
+            let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+    
+            // Loop through each section to check if it's in view
+            sections.forEach((section, index) => {
+                let sectionTop = section.offsetTop;
+                let sectionHeight = section.offsetHeight;
+    
+                if (scrollPosition >= sectionTop - sectionHeight / 3 && scrollPosition < sectionTop + sectionHeight - sectionHeight / 3) {
+                    // Remove 'active' class from all nav items
+                    navLinks.forEach(link => link.classList.remove('active'));
+    
+                    // Add 'active' class to the current nav link
+                    navLinks[index].classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', highlightNavbar);
+    </script>
+</body>
+</html>

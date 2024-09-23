@@ -1,0 +1,9 @@
+Flask
+google-generativeai
+numpy
+openpyxl
+pandas
+pillow
+PyMuPDF
+python-dotenv
+sentence-transformers

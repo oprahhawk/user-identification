@@ -1,0 +1,364 @@
+body {
+    font-family: Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(248, 251, 253, 0.637);
+    scroll-behavior: smooth; 
+    scroll-snap-align: center;
+    font-size: 100%;
+}
+
+.navbar {
+    display: flex;
+    background-color: #021526;
+    padding: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    margin-right: 50px;
+}
+
+.navbar-brand {
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar-title {
+    text-decoration: none;
+    padding: 1rem 1rem;
+    color: white;
+}
+
+.nav-item {
+    display: inline-block;
+    padding: 10px;
+    margin: 0px 0px;
+    color: white;
+    text-decoration: none;
+    font-weight: unset;
+    border-radius: 10px;
+    margin-right: 20px;
+    transition: 0.2s;
+}
+
+.nav-item:hover {
+    color: #ffffff;
+}
+
+section {
+    display: flex;
+    height: 70vh;
+    padding: 100px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #ccc;
+    scroll-snap-align: center;
+    scroll-behavior: smooth;
+}
+
+.nav-item.active {
+    color: #A0C4FF; /* Change to any color you prefer */
+    font-weight: bold;
+}
+
+#resume {
+    background-color: white;
+}
+
+#info {
+    background-color: #b5e6c6;
+}
+
+#job {
+    background-color: #d6d6d6;
+}
+
+#item {
+    background-color: #b5e6c6;
+}
+
+.home-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.welcome-text {
+    margin-top: 10px;
+    flex: 1;
+    margin-right: 20px;
+    margin-left: 20px;
+    font-size: 1.05rem;
+}
+.home-image {
+    flex: 1;
+    text-align: right;
+}
+.home-image img {
+    width: 850px;
+    margin-top: 25px;
+}
+
+.container {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Verdana, sans-serif;
+}
+
+.input-field {
+    width: 700px;
+    height: 200px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: none;
+    font-size: 18px;
+}
+.submit-button {
+    padding: 10px 20px;
+    background-color: #021526;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.submit-button:hover {
+    background-color: #021526;
+    color: #A0C4FF;
+}
+
+.item {
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.3s;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-family: Verdana, sans-serif;
+}
+
+.cer-box p {
+    font-size: 0.8rem;
+    font-family: Verdana, sans-serif;
+    line-height: 2;
+}
+
+.job-box p {
+    font-size: 0.8rem;
+    font-family: Verdana, sans-serif;
+    line-height: 2;
+}
+
+.job-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.job-box {  
+    background-color: #ddddddcc;
+    color: black;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    height: 280px;
+    width: 180px;
+    margin-top: 20px;
+}
+
+.img-jobs img {
+    margin-top: 10px;
+    width: 90%;
+    height: 90%;
+    border-radius: 12px;
+}
+
+.job-info {
+    margin-top: 0px;
+    font-size: 0.8rem;
+}
+
+.job-info h2 {
+    margin: 10px;
+    padding: 0;
+    font-size: 1rem;
+}
+
+.job-info p {
+    margin: 5px 0;
+    padding: 0;
+    line-height: 1.2;
+}
+
+.cer-info p {
+    margin: 5px 0;
+    padding: 0;
+    line-height: 1.2;
+}
+
+.cer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.cer-box {  
+    background-color: #ddddddcc;
+    color: black;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    height: 320px;
+    width: 180px;
+    margin-top: 10px;
+}
+
+.img-cers {
+    margin-right: 0px;
+}
+
+.img-cers img {
+    margin-top: 0px;
+    width: 150px;
+    height: 200px;
+    border-radius: 12px;
+    float: none;
+}
+
+.cer-info {
+    font-size: 0.8rem;
+    text-align: center  ;
+    font-family: Verdana, sans-serif;
+}
+
+.cer-info h2 {
+    padding: 0;
+    font-size: 1rem;
+}
+
+.cer-info p {
+    padding: 0;
+    line-height: 0.8;
+}
+
+.default-image {
+    margin-top: 17px;
+    justify-content: center;
+    align-items: center;
+    display: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.default-image img {
+    width: 40%;
+    height: 40%;
+    border-radius: 12px;
+    align-items: center;
+    max-width: 100%;
+    height: auto;
+    margin-top: 70px;
+}
+
+.text-before {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    margin-top: 100px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 80%; /* Adjust font size slightly smaller for mobile */
+    }
+
+    .navbar {
+        position: fixed;
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .navbar-title, .navbar-brand {
+        font-size: 1.2rem;
+        padding: 0.5rem;
+        text-align: center;
+    }
+
+    .nav-item {
+        display: none;
+    }
+
+    section {
+        width: 100%;
+    }
+
+    .home-image img {
+        width: 100%; /* Make image responsive */
+        margin-top: 15px;
+    }
+
+    .home-container {
+        flex-direction: column; /* Stack content vertically */
+        align-items: center;
+    }
+
+    .welcome-text {
+        margin: 10px;
+        font-size: 1rem; /* Adjust font size for better readability */
+    }
+
+    .input-field {
+        width: 100%; /* Ensure input fields take full width */
+        height: auto;
+        font-size: 16px;
+    }
+
+    .job-container, .cer-container {
+        align-items: center;
+        width: 100%;
+    }
+
+    .job-box, .cer-box {
+        width: 100%;
+        height: 40%;
+    }
+
+    .img-jobs img, .img-cers img {
+        width: 100%; /* Images fill their containers */
+        align-items: center;
+        height: auto;
+    }
+
+    .default-image img {
+        width: 70%; /* Adjust image size for mobile screens */
+        margin-top: 30px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .text-before {
+        font-size: 1.5rem;
+        margin-top: 50px;
+    }
+}
